@@ -230,6 +230,6 @@ function findMissingLetter(array) {
   }
 }
 
-console.log(findMissingLetter(["B", "C"]));
-console.log(findMissingLetter(["b", "d"]));
+console.log(findMissingLetter(['O', 'Q', 'R', 'S']));
+console.log(findMissingLetter(['a', 'b', 'c', 'd', 'f']));
 
