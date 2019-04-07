@@ -231,5 +231,5 @@ function findMissingLetter(array) {
 }
 
 console.log(findMissingLetter(['O', 'Q', 'R', 'S']));
-console.log(findMissingLetter(['a', 'b', 'c', 'd', 'f']));
+console.log(findMissingLetter(['a', 'b',  'd', 'f']));
 
