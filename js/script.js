@@ -199,22 +199,37 @@ console.log(array_diff2([1, 2, 2, 2, 3], [2]));
 
 // 7
 /*
-Цель этого упражнения - преобразовать строку в новую строку, где каждый символ в новой строке имеет место,
-"("если этот символ появляется только один раз в исходной строке или ")"если этот символ появляется более
-одного раза в исходной строке. Игнорировать заглавные буквы при определении, является ли персонаж дубликатом.
+#Find the missing letter
 
-Примеры
-"din"      =>  "((("
-"recede"   =>  "()()()"
-"Success"  =>  ")())())"
-"(( @"     =>  "))(("
+Write a method that takes an array of consecutive (increasing) letters as input and that returns the missing letter in the array.
+
+You will always get an valid array. And it will be always exactly one letter be missing. The length of the array will always be at least 2.
+The array will always contain letters in only one case.
+
+Example:
+
+['a','b','c','d','f'] -> 'e'
+['O','Q','R','S'] -> 'P'
+(Use the English alphabet with 26 letters!)
+
+Have fun coding it and please don't forget to vote and rank this kata! :-)
+
+I have also created other katas. Take a look if you enjoyed this kata!
 
 */
 
-function duplicateEncode(word) {
-  // ...
-  word = word.toUpperCase();
- const arr = word.split('');
-  console.log(arr);
+function findMissingLetter(array) {
+  const str = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+  let arr = str.split("");
+  for (const key of array) {
+    arr = arr.slice(arr.indexOf(key), arr.indexOf(array[array.length - 1]) + 1);
+    const result = arr.filter(item => {
+      return !array.includes(item);
+    });
+    return result.join(", ");
+  }
 }
-duplicateEncode('Success');
+
+console.log(findMissingLetter(["B", "C"]));
+console.log(findMissingLetter(["b", "d"]));
+
