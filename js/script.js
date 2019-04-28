@@ -264,10 +264,10 @@ function titleCase(title, minorWords) {
     return title;
   }
   if (!minorWords) {
-    let arrr = title.split(' ').map(item => {
+    let arr = title.split(' ').map(item => {
       return item = item.charAt(0).toUpperCase() + item.slice(1).toLowerCase()
     });
-    return arrr.join(' ');
+    return arr.join(' ');
   } else {
     title = title.toLowerCase().split(' ');
     minorWords = minorWords.toLowerCase().split(' ');
