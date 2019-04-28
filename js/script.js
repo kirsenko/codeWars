@@ -250,3 +250,39 @@ var moveZeros = function (arr) {
   let newArr0 = arr.filter((item) => item === 0)
   return newArr.concat(newArr0)
 }
+
+// 9
+// Title Case
+/*
+titleCase('a clash of KINGS', 'a an the of') // should return: 'A Clash of Kings'
+titleCase('THE WIND IN THE WILLOWS', 'The In') // should return: 'The Wind in the Willows'
+titleCase('the quick brown fox') // should return: 'The Quick Brown Fox'
+*/
+
+function titleCase(title, minorWords) {
+  if (!title) {
+    return title;
+  }
+  if (!minorWords) {
+    let arrr = title.split(' ').map(item => {
+      return item = item.charAt(0).toUpperCase() + item.slice(1).toLowerCase()
+    });
+    return arrr.join(' ');
+  } else {
+    title = title.toLowerCase().split(' ');
+    minorWords = minorWords.toLowerCase().split(' ');
+    let arr = title.map((item, index) => {
+      if (index === 0 || !minorWords.includes(item)) {
+        return item = item.charAt(0).toUpperCase() + item.slice(1).toLowerCase();
+      }
+      return item;
+    });
+    return arr.join(' ');
+  }
+
+}
+
+console.log(titleCase('a clash of KINGS', 'a an the of'));
+console.log(titleCase('THE WIND IN THE WILLOWS', 'The In'));
+console.log(titleCase('', 'The In'));
+console.log(titleCase('a clash of KINGS'));
