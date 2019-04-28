@@ -12,12 +12,12 @@ uniqueInOrder('AAAABBBCCDAABBB') == ['A', 'B', 'C', 'D', 'A', 'B']
 uniqueInOrder('ABBCcAD') == ['A', 'B', 'C', 'c', 'A', 'D']
 uniqueInOrder([1, 2, 2, 3, 3]) == [1, 2, 3]
 */
-var uniqueInOrder = function(iterable) {
+var uniqueInOrder = function (iterable) {
   //your code here - remember iterable can be a string or an array
   if (typeof iterable === "string") {
     iterable = iterable.split("");
   }
-  let newArr = iterable.reduce(function(acc, item, i) {
+  let newArr = iterable.reduce(function (acc, item, i) {
     if (item != iterable[i + 1]) {
       acc.push(item);
     }
@@ -62,12 +62,13 @@ divisors(13); // should return "13 is prime"
 */
 
 function divisors(integer) {
-  let arr =[];
+  let arr = [];
   for (let i = 2; i < integer; i++) {
-  if (!(integer%i)) {
-    arr.push(i);
+    if (!(integer % i)) {
+      arr.push(i);
+    }
   }
-  } if (arr.length) {
+  if (arr.length) {
     return arr;
   } else return integer + ' is prime';
 };
@@ -105,10 +106,11 @@ songDecoder("WUBWEWUBAREWUBWUBTHEWUBCHAMPIONSWUBMYWUBFRIENDWUB")
 
 
 function songDecoder(song) {
-   let arr = song.split('WUB').reduce(function (acc, item) {
+  let arr = song.split('WUB').reduce(function (acc, item) {
     if (item) {
       acc.push(item);
-    }return acc;
+    }
+    return acc;
   }, []);
   return arr.join(' ');
 }
@@ -182,13 +184,16 @@ function array_diff(a, b) {
     if (!(b.includes(a[key]))) {
       arr.push(a[key]);
     }
-  } return arr;
   }
+  return arr;
+}
 console.log(array_diff([1, 2, 2, 2, 3], [2]));
 
 
 function array_diff1(a, b) {
-  return a.filter(function (x) { return b.indexOf(x) == -1; });
+  return a.filter(function (x) {
+    return b.indexOf(x) == -1;
+  });
 }
 console.log(array_diff1([1, 2, 2, 2, 3], [2]));
 
@@ -231,5 +236,17 @@ function findMissingLetter(array) {
 }
 
 console.log(findMissingLetter(['O', 'Q', 'R', 'S']));
-console.log(findMissingLetter(['a', 'b',  'd', 'f']));
+console.log(findMissingLetter(['a', 'b', 'd', 'f']));
 
+// 8
+
+// Write an algorithm that takes an array and moves all of the zeros to the end, preserving the order of the other elements.
+
+moveZeros([false, 1, 0, 1, 2, 0, 1, 3, "a"]) // returns[false,1,1,2,1,3,"a",0,0]
+
+var moveZeros = function (arr) {
+  // TODO: Program me
+  let newArr = arr.filter((item) => item !== 0)
+  let newArr0 = arr.filter((item) => item === 0)
+  return newArr.concat(newArr0)
+}
