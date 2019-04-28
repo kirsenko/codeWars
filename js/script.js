@@ -125,20 +125,32 @@ console.log(songDecoder1("WUBWEWUBAREWUBWUBTHEWUBCHAMPIONSWUBMYWUBFRIENDWUB"));
 
 // 4---------------------------------------
 /*
-The new "Avengers" movie has just been released! There are a lot of people at the cinema box office standing in a huge line. Each of them has a single 100, 50 or 25 dollars bill. An "Avengers" ticket costs 25 dollars.
+Take a Number And Sum Its Digits Raised To The Consecutive Powers And....¡Eureka!!
+89 = 8 ^ 1 + 9 ^ 2
+The next number in having this property is 135.
+See this property again: 135 = 1 ^ 1 + 3 ^ 2 + 5 ^ 3
 
-Vasya is currently working as a clerk. He wants to sell a ticket to every single person in this line.
+We need a function to collect these numbers, that may receive two integers a, b that defines the range[a,
+b](inclusive) and outputs a list of the sorted numbers in the range that fulfills the property described above.
 
-Can Vasya sell a ticket to each person and give the change if he initially has no money and sells the tickets strictly in the order people follow in the line?
-
-Return YES, if Vasya can sell a ticket to each person and give the change with the bills he has at hand at that moment. Otherwise return NO.
-
-Examples:
-tickets([25, 25, 50]) // => YES
-tickets([25, 100]) // => NO. Vasya will not have enough money to give change to 100 dollars
-tickets([25, 25, 50, 50, 100]) // => NO. Vasya will not have the right bills to give 75 dollars of ch
-
+sumDigPow(1, 10) == [1, 2, 3, 4, 5, 6, 7, 8, 9]
+sumDigPow(1, 100) == [1, 2, 3, 4, 5, 6, 7, 8, 9, 89]
+If there are no numbers of this kind in the range[a, b] the
+function should output an empty list.
+sumDigPow(90, 100) == []
 */
+
+function sumDigPow(a, b) {
+  // Your code here
+  return Array(b - a + 1).fill().map((item, i) => a + i).filter((item) => {
+    return (item >= 0 && item < 10 || item === [...`${item}`].reduce((acc, val, ind) => {
+      return acc += Math.pow(val, ind + 1);
+    }, 0));
+  });
+}
+
+console.log(sumDigPow(1, 100));
+
 
 // 5
 /*
