@@ -301,7 +301,7 @@ function pigIt(str) {
   //Code here
   arr = str.split(' ').map(item => {
     if (!item.match(/[.,\/#!$%\^&\*;:{}=\-_`~()?]/g, "")) {
-      return item = `${item.slice( 1 )}${item[0]}ay`;
+      return item = `${item.slice(1)}${item[0]}ay`;
     }
     return item;
   })
