@@ -246,9 +246,7 @@ moveZeros([false, 1, 0, 1, 2, 0, 1, 3, "a"]) // returns[false,1,1,2,1,3,"a",0,0]
 
 var moveZeros = function (arr) {
   // TODO: Program me
-  let newArr = arr.filter((item) => item !== 0)
-  let newArr0 = arr.filter((item) => item === 0)
-  return newArr.concat(newArr0)
+  return arr.filter((item) => item !== 0).concat(arr.filter((item) => item === 0))
 }
 
 // 9
@@ -264,20 +262,18 @@ function titleCase(title, minorWords) {
     return title;
   }
   if (!minorWords) {
-    let arr = title.split(' ').map(item => {
+    return title.split(' ').map(item => {
       return item = item.charAt(0).toUpperCase() + item.slice(1).toLowerCase()
-    });
-    return arr.join(' ');
+    }).join(' ');
   } else {
     title = title.toLowerCase().split(' ');
     minorWords = minorWords.toLowerCase().split(' ');
-    let arr = title.map((item, index) => {
+    return title.map((item, index) => {
       if (index === 0 || !minorWords.includes(item)) {
         return item = item.charAt(0).toUpperCase() + item.slice(1).toLowerCase();
       }
       return item;
-    });
-    return arr.join(' ');
+    }).join(' ');
   }
 
 }
@@ -299,19 +295,18 @@ pigIt('Hello world !'); // elloHay orldway !
 
 function pigIt(str) {
   //Code here
-  arr = str.split(' ').map(item => {
+  return str.split(' ').map(item => {
     if (!item.match(/[.,\/#!$%\^&\*;:{}=\-_`~()?]/g, "")) {
       return item = `${item.slice(1)}${item[0]}ay`;
     }
     return item;
-  })
-  return arr.join(' ');
+  }).join(' ');
 
 }
 
-function pigIt(str) {
-  return str.replace(/(\w)(\w*)(\s|$)/g, "\$2\$1ay\$3")
-}
+// function pigIt(str) {
+//   return str.replace(/(\w)(\w*)(\s|$)/g, "\$2\$1ay\$3")
+// }
 
 pigIt('Pig latin is cool'); // igPay atinlay siay oolcay
 pigIt('Hello world !'); // elloHay orldway !
