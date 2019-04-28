@@ -316,9 +316,38 @@ function pigIt(str) {
 
 }
 
-// function pigIt(str) {
-//   return str.replace(/(\w)(\w*)(\s|$)/g, "\$2\$1ay\$3")
-// }
+function pigIt(str) {
+  return str.replace(/(\w)(\w*)(\s|$)/g, "\$2\$1ay\$3")
+}
 
 pigIt('Pig latin is cool'); // igPay atinlay siay oolcay
 pigIt('Hello world !'); // elloHay orldway !
+
+// 11
+// Human Readable Time
+/*
+Write function, which takes a non - negative integer(seconds) as input and returns the time in a human - readable format(HH: MM: SS)
+
+HH = hours, padded to 2 digits, range: 00 - 99
+MM = minutes, padded to 2 digits, range: 00 - 59
+SS = seconds, padded to 2 digits, range: 00 - 59
+The maximum time never exceeds 359999(99: 59: 59)
+*/
+
+function humanReadable(seconds) {
+  // TODO
+  let sec = parseInt(seconds % 60);
+  let min = parseInt(seconds / 60 % 60);
+  let hours = parseInt(seconds / (60 * 60));
+  (min < 10) ? min = `0${min}`: min;
+  (hours < 10) ? hours = `0${hours}`: hours;
+  (sec < 10) ? sec = `0${sec}`: sec;
+  return `${hours}:${min}:${sec}`;
+}
+
+// humanReadable(0)
+// humanReadable(5)
+// humanReadable(60)
+// humanReadable(86399)
+
+console.log(humanReadable(86399));
